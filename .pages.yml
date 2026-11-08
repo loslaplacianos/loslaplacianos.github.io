@@ -77,6 +77,6 @@ content:
         type: object
         list: true
         fields:
-          - { name: label, label: Red (GitHub, LinkedIn…), type: string }
-          - { name: handle, label: Texto visible (@usuario, dominio…), type: string }
+          - { name: label, label: "Red (GitHub, LinkedIn…)", type: string }
+          - { name: handle, label: "Texto visible (@usuario, dominio…)", type: string }
           - { name: url, label: Enlace completo (https://…), type: string }
