@@ -1,0 +1,38 @@
+{
+  "tagline": "[Completar] Una frase que resuma qué investigáis y por qué.",
+  "about": [
+    "[Completar] Párrafo 1: cómo y cuándo nació el equipo, dónde estáis (universidad, centro, ciudad).",
+    "[Completar] Párrafo 2: qué os mueve y en qué líneas trabajáis."
+  ],
+  "pillars": [
+    { "title": "[Línea de investigación 1]", "text": "[Breve descripción]" },
+    { "title": "[Línea de investigación 2]", "text": "[Breve descripción]" },
+    { "title": "[Línea de investigación 3]", "text": "[Breve descripción]" }
+  ],
+  "members": [
+    { "name": "[Nombre Apellido]", "role": "[Rol]", "bio": "[Breve bio]", "photo": "", "link": "" },
+    { "name": "[Nombre Apellido]", "role": "[Rol]", "bio": "[Breve bio]", "photo": "", "link": "" },
+    { "name": "[Nombre Apellido]", "role": "[Rol]", "bio": "[Breve bio]", "photo": "", "link": "" }
+  ],
+  "projects": [
+    { "title": "[Proyecto 1]", "text": "[Qué es y qué resultado obtuvo]", "tags": ["[tema]", "[año]"], "repo": "", "web": "" },
+    { "title": "[Proyecto 2]", "text": "[Qué es y qué resultado obtuvo]", "tags": ["[tema]", "[año]"], "repo": "", "web": "" },
+    { "title": "[Proyecto 3]", "text": "[Qué es y qué resultado obtuvo]", "tags": ["[tema]", "[año]"], "repo": "", "web": "" }
+  ],
+  "conferences": [
+    { "date": "[Mes Año]", "title": "[Nombre de la conferencia, ciudad]", "text": "[Qué presentasteis]", "link": "" },
+    { "date": "[Mes Año]", "title": "[Nombre de la conferencia, ciudad]", "text": "[Qué presentasteis]", "link": "" }
+  ],
+  "contests": [
+    { "date": "[Mes Año]", "title": "[Nombre del concurso]", "text": "[Qué hicisteis]", "award": "[Premio]", "link": "" },
+    { "date": "[Mes Año]", "title": "[Nombre del concurso]", "text": "[Qué hicisteis]", "award": "", "link": "" }
+  ],
+  "socials": [
+    { "label": "GitHub", "handle": "[github.com/usuario]", "url": "" },
+    { "label": "Web", "handle": "[dominio]", "url": "" },
+    { "label": "LinkedIn", "handle": "[perfil]", "url": "" },
+    { "label": "X / Twitter", "handle": "[@usuario]", "url": "" },
+    { "label": "Instagram", "handle": "[@usuario]", "url": "" },
+    { "label": "Email", "handle": "[correo]", "url": "" }
+  ]
+}
