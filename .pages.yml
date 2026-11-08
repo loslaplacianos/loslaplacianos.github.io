@@ -1,0 +1,82 @@
+# Configuración de Pages CMS (https://pagescms.org)
+# Define los formularios para editar contenido.json sin tocar el diseño.
+
+media:
+  input: images
+  output: images
+
+content:
+  - name: contenido
+    label: Contenido de la web
+    type: file
+    path: contenido.json
+    format: json
+    fields:
+      - name: tagline
+        label: Frase de presentación (portada)
+        type: string
+
+      - name: about
+        label: Quiénes somos (párrafos)
+        type: text
+        list: true
+
+      - name: pillars
+        label: Líneas de investigación
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: text, label: Descripción, type: text }
+
+      - name: members
+        label: Miembros del equipo
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Nombre y apellidos, type: string }
+          - { name: role, label: Rol, type: string }
+          - { name: bio, label: Bio breve, type: text }
+          - { name: photo, label: Foto, type: image }
+          - { name: link, label: Enlace al perfil (opcional), type: string }
+
+      - name: projects
+        label: Proyectos
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: text, label: Descripción, type: text }
+          - { name: tags, label: Etiquetas, type: string, list: true }
+          - { name: repo, label: Enlace al código (opcional), type: string }
+          - { name: web, label: Enlace "Ver más" (opcional), type: string }
+
+      - name: conferences
+        label: Conferencias
+        type: object
+        list: true
+        fields:
+          - { name: date, label: Fecha (p. ej. Marzo 2026), type: string }
+          - { name: title, label: Conferencia y ciudad, type: string }
+          - { name: text, label: Qué presentasteis, type: text }
+          - { name: link, label: Enlace (opcional), type: string }
+
+      - name: contests
+        label: Concursos
+        type: object
+        list: true
+        fields:
+          - { name: date, label: Fecha (p. ej. Marzo 2026), type: string }
+          - { name: title, label: Nombre del concurso, type: string }
+          - { name: text, label: Qué hicisteis, type: text }
+          - { name: award, label: Premio (vacío si no hubo), type: string }
+          - { name: link, label: Enlace (opcional), type: string }
+
+      - name: socials
+        label: Redes y referencias
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Red (GitHub, LinkedIn…), type: string }
+          - { name: handle, label: Texto visible (@usuario, dominio…), type: string }
+          - { name: url, label: Enlace completo (https://…), type: string }
