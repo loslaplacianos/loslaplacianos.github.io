@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Los Laplacianos</title>
+<meta name="description" content="Equipo de investigación Los Laplacianos: quiénes somos, proyectos, conferencias, concursos y redes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f2; --surface:#ffffff; --ink:#16181d; --muted:#5d6370; --line:#e3e1da;
+  --accent:#2f5bd3; --accent-soft:#e6ecfb; --warm:#c8572d;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1115; --surface:#171a21; --ink:#eceef2; --muted:#9aa1ad; --line:#272b35;
+    --accent:#7d9cf5; --accent-soft:#1c2540; --warm:#e8875f;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --surface:#171a21; --ink:#eceef2; --muted:#9aa1ad; --line:#272b35;
+  --accent:#7d9cf5; --accent-soft:#1c2540; --warm:#e8875f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.15}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.brand{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;color:var(--ink)}
+.brand span{color:var(--accent)}
+nav ul{display:flex;gap:20px;list-style:none;font-size:.92rem}
+nav ul a{color:var(--muted)}
+nav ul a:hover{color:var(--ink);text-decoration:none}
+@media (max-width:720px){nav ul{display:none}}
+
+/* hero */
+.hero{padding:96px 0 72px;position:relative;overflow:hidden}
+.hero .eq{font-size:.95rem;color:var(--warm);letter-spacing:.02em;margin-bottom:18px}
+.hero h1{font-size:clamp(2.6rem,7vw,4.6rem);max-width:12ch}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:56ch;margin-top:20px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.95rem;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.nabla{position:absolute;right:-40px;top:30px;font-family:Fraunces,serif;font-size:min(42vw,420px);line-height:1;color:var(--accent);opacity:.07;pointer-events:none;user-select:none}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+.kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:600;margin-bottom:10px}
+section h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:12px}
+.lead{color:var(--muted);max-width:62ch;margin-bottom:36px}
+
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{font-size:1.2rem;margin-bottom:6px}
+.card p{color:var(--muted);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-size:.75rem;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.card .links{margin-top:14px;display:flex;gap:14px;font-size:.9rem;font-weight:500}
+
+/* members */
+.member{text-align:left}
+.avatar{width:64px;height:64px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:Fraunces,serif;font-size:1.4rem;font-weight:700;margin-bottom:14px;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.role{font-size:.85rem;color:var(--warm);font-weight:500;margin-bottom:8px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start}
+.about p+p{margin-top:14px}
+.about .lines{color:var(--muted)}
+.pillars{display:grid;gap:12px}
+.pillar{border-left:3px solid var(--accent);padding:4px 0 4px 14px}
+.pillar strong{display:block}
+.pillar span{color:var(--muted);font-size:.93rem}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+
+/* timeline */
+.timeline{list-style:none;position:relative;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.timeline li{position:relative;padding-bottom:26px}
+.timeline li::before{content:"";position:absolute;left:-25px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.timeline li.award::before{border-color:var(--warm);background:var(--warm)}
+.tl-date{font-size:.82rem;color:var(--muted)}
+.tl-title{font-weight:600;font-size:1.05rem}
+.tl-desc{color:var(--muted);font-size:.95rem}
+.badge{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:6px;margin-left:8px;vertical-align:2px;background:color-mix(in srgb,var(--warm) 16%,transparent);color:var(--warm)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.two-col h3{font-size:1.3rem;margin-bottom:20px}
+@media (max-width:760px){.two-col{grid-template-columns:1fr}}
+
+/* social */
+.socials{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.social{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:var(--ink)}
+.social:hover{border-color:var(--accent);text-decoration:none}
+.social .ico{width:38px;height:38px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+.social small{display:block;color:var(--muted);font-size:.82rem}
+
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#"><span>∇²</span> Los Laplacianos</a>
+    <ul>
+      <li><a href="#quienes">Quiénes somos</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#eventos">Conferencias y concursos</a></li>
+      <li><a href="#redes">Redes</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="nabla" aria-hidden="true">∇²</div>
+  <div class="wrap">
+    <div class="eq mono">Δu = ∇·∇u</div>
+    <h1>Los Laplacianos</h1>
+    <p id="tagline"></p>
+    <div class="cta">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn" href="#redes">Contactar</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="quienes">
+    <div class="wrap about">
+      <div>
+        <div class="kicker">Quiénes somos</div>
+        <h2>Un equipo de investigación</h2>
+        <div class="lines" id="about"></div>
+      </div>
+      <div class="pillars" id="pillars"></div>
+    </div>
+  </section>
+
+  <section id="equipo">
+    <div class="wrap">
+      <div class="kicker">Equipo</div>
+      <h2>Las personas detrás</h2>
+      <p class="lead">Quienes formamos Los Laplacianos.</p>
+      <div class="grid" id="members"></div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="wrap">
+      <div class="kicker">Proyectos</div>
+      <h2>Lo que hemos construido</h2>
+      <p class="lead">Una selección de nuestros trabajos de investigación y desarrollo.</p>
+      <div class="grid" id="projects"></div>
+    </div>
+  </section>
+
+  <section id="eventos">
+    <div class="wrap">
+      <div class="kicker">Trayectoria</div>
+      <h2>Conferencias y concursos</h2>
+      <p class="lead">Donde hemos presentado nuestro trabajo y competido.</p>
+      <div class="two-col">
+        <div><h3>Conferencias</h3><ul class="timeline" id="conferences"></ul></div>
+        <div><h3>Concursos</h3><ul class="timeline" id="contests"></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="redes">
+    <div class="wrap">
+      <div class="kicker">Redes y referencias</div>
+      <h2>Encuéntranos</h2>
+      <p class="lead">Nuestras páginas, redes sociales y enlaces de referencia.</p>
+      <div class="socials" id="socials"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Los Laplacianos</span>
+    <span class="mono">∇²φ = 0</span>
+  </div>
+</footer>
+
+<script>
+/* El contenido vive en contenido.json (editable desde Pages CMS).
+   Este archivo solo contiene el diseño. */
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const $ = id => document.getElementById(id);
+const initials = n => n.replace(/[\[\]]/g,"").split(/\s+/).filter(Boolean).slice(0,2).map(w => w[0]).join("").toUpperCase() || "∇";
+const link = (url, text) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${text}</a>` : "";
+
+function render(DATA) {
+$("tagline").textContent = DATA.tagline || "";
+$("about").innerHTML = (DATA.about || []).map(p => `<p>${esc(p)}</p>`).join("");
+$("pillars").innerHTML = (DATA.pillars || []).map(p => `<div class="pillar"><strong>${esc(p.title)}</strong><span>${esc(p.text)}</span></div>`).join("");
+
+$("members").innerHTML = (DATA.members || []).map(m => `
+  <div class="card member">
+    <div class="avatar">${m.photo ? `<img src="${esc(m.photo.replace(/^\//, ""))}" alt="${esc(m.name)}">` : esc(initials(m.name))}</div>
+    <h3>${esc(m.name)}</h3>
+    <div class="role">${esc(m.role)}</div>
+    <p>${esc(m.bio)}</p>
+    ${m.link ? `<div class="links">${link(m.link, "Perfil →")}</div>` : ""}
+  </div>`).join("");
+
+$("projects").innerHTML = (DATA.projects || []).map(p => `
+  <div class="card">
+    <h3>${esc(p.title)}</h3>
+    <p>${esc(p.text)}</p>
+    <div class="tags">${(p.tags||[]).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+    ${(p.repo || p.web) ? `<div class="links">${link(p.repo, "Código")}${link(p.web, "Ver más →")}</div>` : ""}
+  </div>`).join("");
+
+const tl = (items, withAward) => items.map(e => `
+  <li class="${withAward && e.award ? "award" : ""}">
+    <div class="tl-date">${esc(e.date)}</div>
+    <div class="tl-title">${e.link ? link(e.link, esc(e.title)) : esc(e.title)}${withAward && e.award ? `<span class="badge">${esc(e.award)}</span>` : ""}</div>
+    <div class="tl-desc">${esc(e.text)}</div>
+  </li>`).join("");
+$("conferences").innerHTML = tl(DATA.conferences || [], false);
+$("contests").innerHTML = tl(DATA.contests || [], true);
+
+$("socials").innerHTML = (DATA.socials || []).map(s => {
+  const inner = `<span class="ico">${esc(s.label.slice(0,2))}</span><span>${esc(s.label)}<small>${esc(s.handle)}</small></span>`;
+  return s.url ? `<a class="social" href="${esc(s.url)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="social">${inner}</div>`;
+}).join("");
+
+}
+
+fetch("contenido.json", { cache: "no-store" })
+  .then(r => r.json())
+  .then(render)
+  .catch(err => console.error("No se pudo cargar contenido.json", err));
+
+$("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
